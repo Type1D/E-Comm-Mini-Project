@@ -20,20 +20,18 @@ function renderBooks(filter) {
     for (let i = 0; i < Math.floor(book.rating); i++) {
       ratingHTML += '<i class="fas fa-star"></i>';
     }
+    if (book.rating % 1 >= 0.5) {
+      ratingHTML += '<i class="fas fa-star-half-alt"></i>';
+    }
     return `<div class="book">
     <figure class="book__img--wrapper">
       <img class="book__img" src="${book.url}" alt="${book.title}">
     </figure>
     <div class="book__title">
-      Crack the Coding Interview
       ${book.title}
     </div>
     <div class="book__ratings">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star-half-alt"></i>
+      ${ratingHTML}
     </div>
     <div class="book__price">
       <span class=>$${book.originalPrice.toFixed(2)}</span>
